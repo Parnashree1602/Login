@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&family=Poppins:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: url('background.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 1em 6em;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+.logo {
+  font-size: 2em;
+  color: white;
+  user-select: none;
+}
+
+.navigation a {
+  position: relative;
+  font-size: 1.1em;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  margin-left: 3em;
+}
+
+.navigation a::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 0.13em;
+  left: -.05em;
+  bottom: -.4em;
+  background-color: white;
+  border-radius: 1em;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.navigation a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.navigation .bp {
+  width: 10em;
+  height: 3em;
+  font-size: 1.1em;
+  color: white;
+  font-weight: 800;
+  background: transparent;
+  border: 2px solid white;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 3em;
+  transition: 0.5s;
+}
+
+.navigation .bp:hover {
+  background: white;
+  color: black;
+}
+
+.box {
+  position: relative;
+  width: 400px;
+  height: 440px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform .5s ease, height 0.2s ease;
+}
+
+.box.active-popup {
+  transform: scale(1);
+}
+
+.box.active {
+  height: 520px;
+}
+
+.box .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #162938;
+  font-size: 2em;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  z-index: 1;
+}
+
+.box .formlogin {
+  width: 100%;
+  padding: 40px;
+}
+
+.box .formlogin {
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+.box.active .formlogin {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.box .formregister {
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+}
+
+.box.active .formregister {
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+.box h2 {
+  font-size: 2em;
+  font-weight: 800;
+  color: #162938;
+  text-align: center;
+}
+
+.inputbox {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #162938;
+  margin: 30px 0;
+}
+
+.inputbox label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #162938;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.inputbox input:focus~label,
+.inputbox input:valid~label {
+  top: -5px;
+}
+
+.inputbox input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #162938;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+
+.inputbox .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.3em;
+  color: #162938;
+  line-height: 57px;
+}
+
+.forget {
+  font-size: 0.9em;
+  color: #162938;
+  font-weight: 500;
+  margin: -10px 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.forget label input {
+  accent-color: #162938;
+  margin-right: 5px;
+}
+
+.forget a {
+  color: #162938;
+  text-decoration: none;
+}
+
+.forget a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  background-color: #162938;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1em;
+  color: white;
+  font-weight: 600;
+}
+
+.register {
+  font-size: 0.9em;
+  color: #162938;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+.register p a {
+  text-decoration: none;
+  color: #162938;
+  font-weight: 600;
+}
+
+.register p a:hover {
+  text-decoration: underline;
+}
+
+#menuicon {
+  font-size: 36px;
+  color: white;
+  display: none;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width:992px) {
+  header {
+    padding: 1em 6%;
+  }
+
+  .navigation a {
+    margin-left: 2em;
+  }
+
+  .navigation .bp {
+    width: 8em;
+    height: 3em;
+    margin-left: 2em;
+  }
+}
+
+@media (max-width:768px) {
+  #menuicon {
+    display: block;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: .5rem 4%;
+    background-color: #162938;
+    text-align: center;
+    align-items: center;
+    display: none;
+  }
+
+  .navigation.act {
+    display: block;
+    height: 40vh;
+  }
+
+  header.ac {
+    background-color: #162938;
+  }
+
+  .navigation a {
+    display: block;
+    text-align: center;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+
+  .navigation .bp {
+    display: block;
+    margin: auto;
+    border-color: rgba(255, 255, 255, 0.384);
+  }
+
+  .navigation .bp:hover {
+    background: white;
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    width: 100%;
+    height: 100vh;
+    border: none;
+  }
+
+  .box .close {
+    position: absolute;
+    top: 80vh;
+    right: 45vw;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.521);
+    border: 2px solid rgba(255, 255, 255, 0.521);
+    border-radius: 30px;
+  }
+
+  .box.active {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .navigation.rem {
+    transform: scale(0);
+  }
+
+  header.rem {
+    background: transparent;
+  }
+}
+
+@media (max-height: 700px) {
+  .navigation.act {
+    display: block;
+    height: 50vh;
+  }
+
+  .box .close {
+    position: absolute;
+    top: 85vh;
+  }
+
+}
